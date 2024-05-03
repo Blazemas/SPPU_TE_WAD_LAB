@@ -1,0 +1,22 @@
+<!-- register.component.html -->
+
+<h1>{{title}}</h1>
+
+<input type="text" #name placeholder="Enter Your Name >> " name="name"><br>
+
+<input type="text" #address placeholder="Enter Your Address >> " name="address"><br>
+
+<input type="text" #mobile placeholder="Enter Your Mobile No. >> " name="mobile"><br>
+
+<input type="email" #email placeholder="Enter Your E-Mail >> " name="email"><br>
+
+<input type="password" #password placeholder="Enter Your Password >> " name="password"><br>
+
+<button (click)="getValue(name.value, address.value, mobile.value, email.value)">Register</button>
+
+<h1>Your Registered Data</h1>
+
+<h2>Your Name : {{displayName}}</h2><br>
+<h2>Your Address : {{displayAddress}}</h2><br>
+<h2>Your Mobile No : {{displayMobile}}</h2><br>
+<h2>Your E-Mail : {{displayEmail}}</h2><br>
