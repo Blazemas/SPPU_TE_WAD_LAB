@@ -1,5 +1,6 @@
-Step 1: Create a GitHub Account
+######### ALl Commands are in GIT Bash #############
 
+Step 1: Create a GitHub Account
 
 Step 2: Install Git
 
@@ -19,7 +20,7 @@ Step 5: Clone the Repository
 
 Step 6: Create a Simple README File
 
-->touch README.md
+->touch README.md (Runs of Git Bash only)
 
 # My First Repository
 
