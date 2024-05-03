@@ -1,0 +1,110 @@
+->C:\Users\Lenovo>docker -v
+
+Docker version 26.0.0, build 2ae903e
+
+->C:\Users\Lenovo>docker images
+
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+->C:\Users\Lenovo>docker pull OpenJDK
+
+Using default tag: latest
+latest: Pulling from library/openjdk
+197c1adcd755: Pull complete
+57b698b7af4b: Pull complete
+95a27dbe0150: Pull complete
+Digest: sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f
+Status: Downloaded newer image for openjdk:latest
+docker.io/library/openjdk:latest
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview openjdk
+
+->C:\Users\Lenovo>docker images
+
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+openjdk      latest    71260f256d19   14 months ago   470MB
+
+->C:\Users\Lenovo>docker run --name JAVA -it -d OpenJDK
+
+b1a3e2f13f3b9e462b1f3a9ba70cc02a72a08d04929928a6a6ac4a45d27ce777
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND    CREATED          STATUS          PORTS     NAMES
+b1a3e2f13f3b   openjdk   "jshell"   14 seconds ago   Up 13 seconds             JAVA
+
+->C:\Users\Lenovo>docker exec -it JAVA jshell
+
+|  Welcome to JShell -- Version 18.0.2.1
+|  For an introduction type: /help intro
+
+->jshell> System.out.println("Hello World!);
+|  Error:
+|  unclosed string literal
+|  System.out.println("Hello World!);
+|                     ^
+
+->jshell> System.out.println("Hello World!");
+Hello World!
+
+->jshell> int a = 13;
+a ==> 13
+
+->jshell> int b = 10;
+b ==> 10
+
+->jshell> System.out.println("Sum: "+ (a+b));
+Sum: 23
+
+->jshell> docker ps
+
+|  created variable ps, however, it cannot be referenced until class docker is declared
+
+->jshell> /exit
+
+|  Goodbye
+
+What's next?
+  Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug JAVA
+  Learn more at https://docs.docker.com/go/debug-cli/
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND    CREATED         STATUS         PORTS     NAMES
+b1a3e2f13f3b   openjdk   "jshell"   3 minutes ago   Up 3 minutes             JAVA
+
+->C:\Users\Lenovo>docker stop b1a3e2f13f3b
+
+b1a3e2f13f3b
+
+->C:\Users\Lenovo>docker container rm b1a3e2f13f3b
+
+b1a3e2f13f3b
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+->C:\Users\Lenovo>docker images
+
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+openjdk      latest    71260f256d19   14 months ago   470MB
+
+->C:\Users\Lenovo>docker image prune
+
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+
+->C:\Users\Lenovo>docker ps
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
