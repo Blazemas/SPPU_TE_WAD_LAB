@@ -1,0 +1,28 @@
+->Install Node.js
+
+->Create a folder then open cmd in that folder
+
+->run command : npm init
+
+->open folder in vs_code. create a index.js file
+
+->install express before that: npm install express --save
+
+->index.js content:
+
+ 
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'))
+
+
+app.listen(4000,()=>{
+
+    console.log("Server is Started");
+
+})
+
+->command: npm index.js
+
+->go to browser and type: localhost:4000
