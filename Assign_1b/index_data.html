@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Form Data</title>
+</head>
+<body>
+
+<div id="formDataDisplay"></div>
+<a href="index_main.html"><button id="button">click me</button></a>
+
+<button id="button_3">Delete Data</button>
+
+<script>
+// Retrieve the array of objects from localStorage
+let dataArray = JSON.parse(localStorage.getItem("formData")) || [];
+
+// Reference the div where the data will be displayed
+let formDataDisplay = document.getElementById("formDataDisplay");
+
+// Iterate over the array of objects and create HTML elements to display the data
+dataArray.forEach(function(data, index) {
+    let container = document.createElement("div");
+    container.classList.add("data-container");
+
+    let nameLabel = document.createElement("p");
+    nameLabel.textContent = "Name: " + data.name;
+
+    let emailLabel = document.createElement("p");
+    emailLabel.textContent = "Email: " + data.email;
+
+    let phoneLabel = document.createElement("p");
+    phoneLabel.textContent = "Phone: " + data.phone;
+
+    // Create an hr element
+    let hr = document.createElement("hr");
+
+    container.appendChild(nameLabel);
+    container.appendChild(emailLabel);
+    container.appendChild(phoneLabel);
+
+    formDataDisplay.appendChild(container);
+    
+    // Append hr element after each container
+    formDataDisplay.appendChild(hr);
+
+    document.getElementById("button_3").addEventListener("click", function() { // Prevent default form submission
+        localStorage.clear();
+        location.reload();
+        //document.reload();
+    })
+
+    //localStorage.removeItem("formData")
+});
+</script>
+
+</body>
+</html>
